@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CABBAGE_PRESETS>
+  <PRESET0 PresetName="Init" cabbageJSONData="" att="0.009999999776482582"
+           dec="0.5" sus="0.5" rel="0.699999988079071" cutoff="2000.0" res="0.699999988079071"
+           LFOFreq="0.119999997317791" amp="1.0" pan="0.5" combochan=""
+           filebutton="0.0" square wave="0.0" sine wave="0.0" saw wave="0.0"/>
+</CABBAGE_PRESETS>
