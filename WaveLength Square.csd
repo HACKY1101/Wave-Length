@@ -6,7 +6,7 @@ groupbox bounds(72, 6, 315, 173) text("Presets") imgfile("wavegbox.png")
 groupbox bounds(548, 184, 173, 177) text("Volume and pan") imgfile("wavegbox.png")
 groupbox bounds(406, 184, 136, 177) text("Pitch and glide") imgfile("wavegbox.png")
 
-groupbox bounds(72, 256, 315, 244) text("WaveForm") imgfile("wavegbox.png")
+groupbox bounds(72, 256, 315, 244)  imgfile("wavegbox.png")
 groupbox bounds(406, 366, 315, 135) text("Reverb") imgfile("wavegbox.png")
 keyboard bounds(69, 505, 665, 95) whiteNoteColour(0, 0, 0, 255) keySeparatorColour(255, 255, 255, 102) blackNoteColour(34, 28, 28, 255) mouseOverKeyColour(255, 255, 255, 255)
 rslider bounds(424, 32, 70, 70), channel("att"), range(0.01, 1, 0.01, 1, 0.01), text("Attack")  trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
@@ -32,10 +32,10 @@ filebutton bounds(234, 32, 145, 49), text("Remove", "Remove"), colour:0(55, 55, 
 
 image bounds(30, 126, 416, 222) file("Wave Length logo.png") active(0)
 
-;wave form buttons.
+;wave form controll.
+gentable bounds(82, 276, 293, 150), tablenumber(99.0), identchannel("table1"), fill(0), outlinethickness(3)
+combobox bounds(82, 430, 293, 20), , channel("waveform") text("Sine", "Square", "Saw")
 
-gentable bounds(82, 273, 296, 177)
-combobox bounds(82, 452, 297, 36) text("Square", "Saw", "Sine")
 </Cabbage>
 <CsoundSynthesizer>
 <CsOptions>
@@ -64,6 +64,11 @@ kLFOFreq chnget "LFOFreq"
 kAmp chnget "amp"
 iPan chnget "pan"
 
+kWaveform chnget "waveform"
+    if changed:k(kWaveform) == 1 then
+        tablecopy 99, kWaveform
+        chnset "tablenumber(99)", "table1" 
+    endif
 kEnv madsr iAtt, iDec, iSus, iRel 
 aOut vco2 iAmp, iFreq, iPan
 kLFO lfo 2, kLFOFreq, 5
@@ -73,6 +78,11 @@ endin
 
 </CsInstruments>
 <CsScore>
+f99 0 1024 10 1
+f1 0 1024 10 1                      ;sine
+f2 0 1024 7 1 512 1 0 -1 512 -1     ;square
+f3 0 1024 7 -1 512 1 1 -1 511 1     ;saw
+
 ;causes Csound to run for about 7000 years...
 f0 z
 </CsScore>
