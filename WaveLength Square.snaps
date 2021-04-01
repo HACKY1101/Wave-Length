@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CABBAGE_PRESETS>
-  <PRESET0 PresetName="Simple Bass" cabbageJSONData="" att="0.009999999776482582"
-           dec="0.5" sus="0.5" rel="0.699999988079071" cutoff="102.6999969482422"
-           res="0.0" LFOFreq="4.300000190734863" amp="0.7900000214576721"
-           pan="0.5" combochan="1" filebutton="0.0" square_wave="0.0" sine_wave="0.0"
-           saw_wave="0.0"/>
-  <PRESET1 PresetName="Init" cabbageJSONData="" att="0.009999999776482582"
+  <PRESET0 PresetName="Init" cabbageJSONData="" att="0.009999999776482582"
            dec="0.5" sus="0.5" rel="0.699999988079071" cutoff="2000.0" res="0.699999988079071"
-           LFOFreq="0.119999997317791" amp="1.0" pan="0.5" combochan="1"
-           filebutton="0.0" square_wave="0.0" sine_wave="0.0" saw_wave="0.0"/>
+           LFOFreq="0.119999997317791" amp="1.0" pan="0.5" combochan="0.0"
+           filebutton="0.0"/>
+  <PRESET1 PresetName="Simple Bass" cabbageJSONData="" att="0.009999999776482582"
+           dec="0.5" sus="0.5" rel="0.699999988079071" cutoff="374.9999694824219"
+           res="0.429999977350235" LFOFreq="4.0" amp="0.8600000143051147"
+           pan="0.5" combochan="0.0" filebutton="0.0"/>
+  <PRESET2 PresetName="Punchy Lead" cabbageJSONData="" att="0.009999999776482582"
+           dec="0.199999988079071" sus="0.119999997317791" rel="1.0" cutoff="3720.72021484375"
+           res="0.699999988079071" LFOFreq="0.119999997317791" amp="1.0"
+           pan="0.5" combochan="0.0" filebutton="0.0"/>
 </CABBAGE_PRESETS>

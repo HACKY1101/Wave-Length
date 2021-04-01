@@ -27,7 +27,7 @@ image bounds(725, 0, 75, 600) file("wood.png")
 ;Preset system IT FINALLY WORKED =)
 
 combobox bounds(85, 100, 288, 25), colour(55, 55, 55, 255), populate("*.snaps"), channeltype("string")
-filebutton bounds(82, 32, 145, 49), text("Save", "Save"), colour:0(55, 55, 55, 255), populate("*.snaps", "test"), mode("snapshot") value(0) imgfile("wavegbox.png")
+filebutton bounds(82, 32, 145, 49), text("Save", "Save"), colour:0(55, 55, 55, 255), populate("*.snaps", "test"), mode("named snapshot") value(0) imgfile("wavegbox.png")
 filebutton bounds(234, 32, 145, 49), text("Remove", "Remove"), colour:0(55, 55, 55, 255), populate("*.snaps", "test"), mode("remove preset") imgfile("wavegbox.png")
 
 image bounds(30, 126, 416, 222) file("Wave Length logo.png") active(0)
