@@ -3,19 +3,22 @@ form caption("WaveLength") size(800, 600), colour(10, 10, 10), pluginID("def1")
 image bounds(0, 71, 800, 529) file("texturebg.jpg")  
 groupbox bounds(406, 6, 315, 173) text("LFO")
 groupbox bounds(72, 6, 315, 173) text("Presets")
-groupbox bounds(408, 184, 313, 318) text("Volume and pan")
+groupbox bounds(548, 184, 173, 177) text("Volume and pan")
+groupbox bounds(406, 184, 136, 177) text("Pitch and glide")
+groupbox bounds(406, 366, 315, 136) text("Distortion and Gain")
 groupbox bounds(72, 272, 315, 112) text("WaveForm")
 groupbox bounds(72, 390, 315, 112) text("Reverb")
 keyboard bounds(69, 505, 665, 95) whiteNoteColour(0, 0, 0, 255) keySeparatorColour(255, 255, 255, 102) blackNoteColour(34, 28, 28, 255) mouseOverKeyColour(255, 255, 255, 255)
-rslider bounds(424, 32, 70, 70), channel("att"), range(0.01, 1, 0.01, 1, 0.01), text("Attack")  trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) filmStrip("rslider.png", 111) colour(0, 0, 0, 255)
-rslider bounds(492, 32, 70, 70), channel("dec"), range(0, 1, 0.5, 1, 0.01), text("Decay") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) filmStrip("rslider.png", 111) colour(0, 0, 0, 255)
-rslider bounds(562, 32, 70, 70), channel("sus"), range(0, 1, 0.5, 1, 0.01), text("Sustain") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) filmStrip("rslider.png", 111) colour(0, 0, 0, 255)
-rslider bounds(632, 32, 70, 70), channel("rel"), range(0, 1, 0.7, 1, 0.01), text("Release") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) filmStrip("rslider.png", 111) colour(0, 0, 0, 255)
-rslider bounds(462, 100, 70, 70), channel("cutoff"), range(100, 9000, 2000, 0.5, 0.01), text("Cut-Off") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) filmStrip("rslider.png", 111) colour(0, 0, 0, 255)
-rslider bounds(530, 100, 70, 70), channel("res"), range(0, 0.9, 0.7, 1, 0.01), text("Resonance") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) filmStrip("rslider.png", 111) colour(0, 0, 0, 255)
-rslider bounds(600, 100, 70, 70), channel("LFOFreq"), range(0, 10, 0.12, 1, 0.1), text("LFO Freq") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) filmStrip("rslider.png", 111) colour(0, 0, 0, 255)
-vslider bounds(624, 208, 88, 289) range(0, 1, 1, 1, 0.001) channel("amp") imgFile("Slider", "VS.png") 
-vslider bounds(418, 208, 88, 289) range(0, 1, 0.5, 1, 0.001) channel("pan") imgFile("Slider", "VS.png") trackerColour(255, 0, 0, 255)
+rslider bounds(424, 32, 70, 70), channel("att"), range(0.01, 1, 0.01, 1, 0.01), text("Attack")  trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
+rslider bounds(492, 32, 70, 70), channel("dec"), range(0, 1, 0.5, 1, 0.01), text("Decay") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
+rslider bounds(562, 32, 70, 70), channel("sus"), range(0, 1, 0.5, 1, 0.01), text("Sustain") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
+rslider bounds(632, 32, 70, 70), channel("rel"), range(0, 1, 0.7, 1, 0.01), text("Release") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
+rslider bounds(462, 100, 70, 70), channel("cutoff"), range(100, 9000, 2000, 0.5, 0.01), text("Cut-Off") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
+rslider bounds(530, 100, 70, 70), channel("res"), range(0, 0.9, 0.7, 1, 0.01), text("Resonance") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
+rslider bounds(600, 100, 70, 70), channel("LFOFreq"), range(0, 10, 0.12, 1, 0.1), text("LFO Freq") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
+
+vslider bounds(640, 210, 70, 150) range(0, 1, 1, 1, 0.001) channel("amp") filmstrip("j8vslider201.png", 201)
+vslider bounds(558, 210, 70, 150) range(0, 1, 0.5, 1, 0.001) channel("pan") filmstrip("j8vslider201.png", 201)
 
 
 image bounds(0, 0, 68, 600) file("wood.png")
@@ -27,7 +30,7 @@ combobox bounds(82, 100, 297, 25), colour(55, 55, 55, 255), populate("*.snaps"),
 filebutton bounds(82, 32, 145, 49), text("Save", "Save"), colour:0(55, 55, 55, 255), populate("*.snaps", "test"), mode("named snapshot")
 filebutton bounds(234, 32, 145, 49), text("Remove", "Remove"), colour:0(55, 55, 55, 255), populate("*.snaps", "test"), mode("remove preset")
 
-image bounds(28, 120, 416, 222) file("Wave Length logo.png") active(0)
+image bounds(30, 126, 416, 222) file("Wave Length logo.png") active(0)
 
 ;wave form buttons.
 
