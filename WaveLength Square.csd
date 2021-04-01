@@ -1,13 +1,13 @@
 <Cabbage> bounds(0, 0, 0, 0)
 form caption("WaveLength") size(800, 600), colour(10, 10, 10), pluginID("def1")
-image bounds(0, 71, 800, 529) file("texturebg.jpg")  
-groupbox bounds(406, 6, 315, 173) text("LFO")
-groupbox bounds(72, 6, 315, 173) text("Presets")
-groupbox bounds(548, 184, 173, 177) text("Volume and pan")
-groupbox bounds(406, 184, 136, 177) text("Pitch and glide")
-groupbox bounds(406, 366, 315, 136) text("Distortion and Gain")
-groupbox bounds(72, 272, 315, 112) text("WaveForm")
-groupbox bounds(72, 390, 315, 112) text("Reverb")
+image bounds(0, 0, 800, 600) file("texturebg.jpg")  
+groupbox bounds(406, 6, 315, 173) text("LFO") imgfile("wavegbox.png")
+groupbox bounds(72, 6, 315, 173) text("Presets") imgfile("wavegbox.png")
+groupbox bounds(548, 184, 173, 177) text("Volume and pan") imgfile("wavegbox.png")
+groupbox bounds(406, 184, 136, 177) text("Pitch and glide") imgfile("wavegbox.png")
+groupbox bounds(406, 366, 315, 136) text("Distortion and Gain") imgfile("wavegbox.png")
+groupbox bounds(72, 272, 315, 112) text("WaveForm") imgfile("wavegbox.png")
+groupbox bounds(72, 390, 315, 112) text("Reverb") imgfile("wavegbox.png")
 keyboard bounds(69, 505, 665, 95) whiteNoteColour(0, 0, 0, 255) keySeparatorColour(255, 255, 255, 102) blackNoteColour(34, 28, 28, 255) mouseOverKeyColour(255, 255, 255, 255)
 rslider bounds(424, 32, 70, 70), channel("att"), range(0.01, 1, 0.01, 1, 0.01), text("Attack")  trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
 rslider bounds(492, 32, 70, 70), channel("dec"), range(0, 1, 0.5, 1, 0.01), text("Decay") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
@@ -26,18 +26,18 @@ image bounds(725, 0, 75, 600) file("wood.png")
 
 ;Preset system IT FINALLY WORKED =)
 
-combobox bounds(82, 100, 297, 25), colour(55, 55, 55, 255), populate("*.snaps"), channeltype("string")
-filebutton bounds(82, 32, 145, 49), text("Save", "Save"), colour:0(55, 55, 55, 255), populate("*.snaps", "test"), mode("named snapshot")
-filebutton bounds(234, 32, 145, 49), text("Remove", "Remove"), colour:0(55, 55, 55, 255), populate("*.snaps", "test"), mode("remove preset")
+combobox bounds(85, 100, 288, 25), colour(55, 55, 55, 255), populate("*.snaps"), channeltype("string")
+filebutton bounds(82, 32, 145, 49), text("Save", "Save"), colour:0(55, 55, 55, 255), populate("*.snaps", "test"), mode("snapshot") value(0) imgfile("wavegbox.png")
+filebutton bounds(234, 32, 145, 49), text("Remove", "Remove"), colour:0(55, 55, 55, 255), populate("*.snaps", "test"), mode("remove preset") imgfile("wavegbox.png")
 
 image bounds(30, 126, 416, 222) file("Wave Length logo.png") active(0)
 
 ;wave form buttons.
 
-button bounds(86, 302, 80, 64) colour:0(55, 55, 55, 255) text("Square", "-Square-") colour:1(159, 159, 159, 255) fontColour:1(0, 0, 0, 255) identChannel("square_wave") channel("square_wave") radioGroup("2")
-button bounds(292, 302, 80, 64) colour:0(55, 55, 55, 255) text("Sine", "-Sine-") colour:1(159, 159, 159, 255) fontColour:1(0, 0, 0, 255) identChannel("sine_wave") channel("sine_wave") radioGroup("2")
-button bounds(190, 302, 80, 64) colour:0(55, 55, 55, 255) text("Saw", "-Saw-") colour:1(159, 159, 159, 255) fontColour:1(0, 0, 0, 255) channel("saw_wave") identChannel("saw_wave") radioGroup("2")
-
+button bounds(86, 302, 80, 64) colour:0(55, 55, 55, 255) text("Square", "-Square-") colour:1(159, 159, 159, 255)   channel("square_wave") imgfile("On", "wavebuttonon.png")imgfile("Off", "wavebuttonoff.png")
+button bounds(292, 302, 80, 64) colour:0(55, 55, 55, 255) text("Sine", "-Sine-") colour:1(159, 159, 159, 255) fontColour:1(0, 0, 0, 255) identChannel("sine_wave") channel("sine_wave") radioGroup("2") imgfile("On", "wavebuttonon.png")imgfile("Off", "wavebuttonoff.png")
+button bounds(190, 302, 80, 64) colour:0(55, 55, 55, 255) text("Saw", "-Saw-") colour:1(159, 159, 159, 255) fontColour:1(0, 0, 0, 255) channel("saw_wave") identChannel("saw_wave") radioGroup("2") imgfile("On", "wavebuttonon.png")imgfile("Off", "wavebuttonoff.png")
+ 
 </Cabbage>
 <CsoundSynthesizer>
 <CsOptions>
