@@ -34,12 +34,8 @@ image bounds(30, 126, 416, 222) file("Wave Length logo.png") active(0)
 
 ;wave form buttons.
 
-
-
-
- 
-combobox bounds(82, 452, 296, 37) text("Square", "Saw", "Sine") value(0)
 gentable bounds(82, 273, 296, 177)
+combobox bounds(82, 452, 297, 36) text("Square", "Saw", "Sine")
 </Cabbage>
 <CsoundSynthesizer>
 <CsOptions>
