@@ -23,9 +23,9 @@ image bounds(725, 0, 75, 600) file("wood.png")
 
 ;Preset system IT FINALLY WORKED =)
 
-combobox bounds(82, 100, 297, 25), populate("*.snaps"), channelType("string") colour(55, 55, 55, 255)
-filebutton bounds(82, 32, 145, 49), text("Save", "Save"), populate("*.snaps", "test"), mode("named snapshot") value(0) colour:0(55, 55, 55, 255)
-filebutton bounds(234, 32, 145, 49), text("Remove", "Remove"), populate("*.snaps", "test"), mode("remove preset") value(0) colour:0(55, 55, 55, 255)
+combobox bounds(82, 100, 297, 25), colour(55, 55, 55, 255), populate("*.snaps"), channeltype("string")
+filebutton bounds(82, 32, 145, 49), text("Save", "Save"), colour:0(55, 55, 55, 255), populate("*.snaps", "test"), mode("named snapshot")
+filebutton bounds(234, 32, 145, 49), text("Remove", "Remove"), colour:0(55, 55, 55, 255), populate("*.snaps", "test"), mode("remove preset")
 
 image bounds(28, 120, 416, 222) file("Wave Length logo.png") active(0)
 
