@@ -16,16 +16,16 @@ rslider bounds(632, 32, 70, 70), channel("rel"), range(0, 1, 0.7, 1, 0.01), text
 rslider bounds(462, 100, 70, 70), channel("cutoff"), range(100, 9000, 2000, 0.5, 0.01), text("Cut-Off") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
 rslider bounds(530, 100, 70, 70), channel("res"), range(0, 0.9, 0.7, 1, 0.01), text("Resonance") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
 rslider bounds(600, 100, 70, 70), channel("LFOFreq"), range(0, 10, 0.12, 1, 0.1), text("LFO Freq") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
-rslider bounds(438, 202, 70, 70), channel("pitch"), range(0, 10, 5, 1, 0.1), text("Pitch") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
-rslider bounds(438, 272, 70, 70), channel("glide"), range(0, 10, 0.12, 1, 0.1), text("Glide") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
-rslider bounds(490, 402, 70, 70), channel("size"), range(0, 1, 0.2, 1, 0.001), text("Size") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201), range(0, 1, 0.2, 1, 0.001)
+rslider bounds(472, 204, 70, 70), channel("pitch"), range(0, 10, 5, 1, 0.1), text("Pitch") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
+rslider bounds(404, 204, 70, 70), channel("glide"), range(0, 10, 0.12, 1, 0.1), text("Glide") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
+
 
 vslider bounds(640, 210, 70, 150) range(0, 1, 1, 1, 0.001) channel("amp") filmstrip("j8vslider201.png", 201)
 vslider bounds(558, 210, 70, 150) range(0, 1, 0.5, 1, 0.001) channel("pan") filmstrip("j8vslider201.png", 201)
 
 
 image bounds(0, 0, 68, 600) file("wood.png")
-image bounds(725, 0, 75, 600) file("wood.png")
+image bounds(724, 0, 76, 600) file("wood.png")
 
 ;Preset system IT FINALLY WORKED =)
 
@@ -39,7 +39,12 @@ image bounds(30, 126, 416, 222) file("Wave Length logo.png") active(0)
 gentable bounds(82, 276, 293, 150), tablenumber(99.0), identchannel("table1"), fill(0), outlinethickness(3)
 combobox bounds(82, 430, 293, 20), , channel("waveform") text("Sine", "Square", "Saw")
 
-
+;reverb unit.
+rslider bounds(420, 384, 70, 70), text("Size"), , , , colour(79, 81, 70, 255), trackercolour(240, 210, 170, 255) channel("fblvl") range(0, 1, 0.8, 1, 0.001) textcolour(255, 255, 255, 255) filmstrip("j8rslider201.png", 201)
+rslider bounds(492, 384, 70, 70), text("Damping"), , , , colour(79, 81, 70, 255), trackercolour(240, 210, 170, 255) channel("fco") range(0, 1, 0.6, 1, 0.001) textcolour(255, 255, 255, 255) filmstrip("j8rslider201.png", 201)
+rslider bounds(438, 280, 70, 70), text("Pitch Mod."), , , ,   colour(79, 81, 70, 255), trackercolour(240, 210, 170, 255), identchannel("pitchmID") channel("pitchm") range(0, 20, 1, 1, 0.001) filmstrip("j8rslider201.png", 201)
+rslider bounds(636, 384, 70, 70), text("Mix"), , , ,   colour(79, 81, 70, 255), trackercolour(240, 210, 170, 255) channel("mix") range(0, 1, 1, 1, 0.001) textcolour(255, 255, 255, 255) filmstrip("j8rslider201.png", 201)
+rslider bounds(564, 384, 70, 70), text("Level"),, , ,   colour(79, 81, 70, 255), trackercolour(240, 210, 170, 255) channel("lvl") range(0, 1, 1, 1, 0.001) textcolour(255, 255, 255, 255) filmstrip("j8rslider201.png", 201)
 
 </Cabbage>
 <CsoundSynthesizer>
