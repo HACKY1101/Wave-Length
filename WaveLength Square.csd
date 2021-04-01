@@ -34,9 +34,9 @@ image bounds(30, 126, 416, 222) file("Wave Length logo.png") active(0)
 
 ;wave form buttons.
 
-button bounds(86, 302, 80, 64) colour:0(55, 55, 55, 255) text("Square", "-Square-") colour:1(159, 159, 159, 255) fontColour:1(0, 0, 0, 255) identChannel("square wave i") channel("square wave") radioGroup("2")
-button bounds(292, 302, 80, 64) colour:0(55, 55, 55, 255) text("Sine", "-Sine-") colour:1(159, 159, 159, 255) fontColour:1(0, 0, 0, 255) identChannel("sine wave 1") channel("sine wave") radioGroup("2")
-button bounds(190, 302, 80, 64) colour:0(55, 55, 55, 255) text("Saw", "-Saw-") colour:1(159, 159, 159, 255) fontColour:1(0, 0, 0, 255) channel("saw wave") identChannel("saw wave i") radioGroup("2")
+button bounds(86, 302, 80, 64) colour:0(55, 55, 55, 255) text("Square", "-Square-") colour:1(159, 159, 159, 255) fontColour:1(0, 0, 0, 255) identChannel("square_wave") channel("square_wave") radioGroup("2")
+button bounds(292, 302, 80, 64) colour:0(55, 55, 55, 255) text("Sine", "-Sine-") colour:1(159, 159, 159, 255) fontColour:1(0, 0, 0, 255) identChannel("sine_wave") channel("sine_wave") radioGroup("2")
+button bounds(190, 302, 80, 64) colour:0(55, 55, 55, 255) text("Saw", "-Saw-") colour:1(159, 159, 159, 255) fontColour:1(0, 0, 0, 255) channel("saw_wave") identChannel("saw_wave") radioGroup("2")
 
 </Cabbage>
 <CsoundSynthesizer>
