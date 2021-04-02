@@ -103,22 +103,14 @@ endin
 
 instr Reverb
 ;The reverb fx unit.
-kMainrev chnget "RvbSize"
-kVolume chnget "RvbMix"
-a1 chnget "outLeft"
+
+a1 chnget "outLef"
 a2 chnget "outRight"
-
-kFdBack = kMainrev
-kFco = kMainrev * 10000
-kGain = kMainrev
-
-aInL inch 1
-aInR inch 2
-aOutL, aOutR reverbsc aInL, aInR, kFdBack, kFco
-outs aOutL*kGain, aOutR*kGain
-
+aL, aR reverbsc a1, a2, .9, 5000
+outs aL, aR
 chnclear "outLeft"
 chnclear "outRight"
+
 endin
 
 
