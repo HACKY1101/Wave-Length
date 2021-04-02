@@ -40,7 +40,7 @@ gentable bounds(82, 276, 293, 150), tablenumber(99.0), identchannel("table1"), f
 combobox bounds(82, 430, 293, 20), , channel("waveform") text("Sine", "Square", "Saw")
 
 ;reverb unit.
-rslider bounds(642, 396, 70, 70), channel("mix"), range(0, 1.00, 1), text("Mix") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
+rslider bounds(642, 396, 70, 70), channel("mix"), range(0, 1, 0, 1, .01), text("Mix") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 rslider bounds(570, 396, 70, 70), channel("size"), range(0, 1, 0, 1, 0.01), text("Size") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 
 ;LoFi unit.
@@ -73,6 +73,7 @@ endop
 ;instrument will be triggered by keyboard widget
 instr 1
 ;The basic instrument.
+
 iFreq = p4
 iAmp = p5
 
@@ -102,7 +103,7 @@ outs kAmp*(aLP*kEnv), kAmp*(aLP*kEnv)
 endin
 
 
-instr Reverb
+instr 2
 ;The reverb fx unit.
 
 kMix chnget "mix"
@@ -123,6 +124,7 @@ endin
 
 instr 3
 ;The LoFi fx unit.
+
 kbits chnget "bits"
 kfold chnget "fold"
 klevel chnget "level"
