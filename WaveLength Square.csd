@@ -20,16 +20,15 @@ rslider bounds(600, 100, 70, 70), channel("LFOFreq"), range(0, 10, 0.12, 1, 0.1)
 rslider bounds(486, 234, 70, 70), channel("pitch"), range(0, 10, 5, 1, 0.1), text("Pitch") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 rslider bounds(412, 234, 70, 70), channel("glide"), range(0, 10, 0.12, 1, 0.1), text("Glide") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 
-
+;Volume and pan.
 vslider bounds(640, 210, 70, 150) range(0, 1, 1, 1, 0.001) channel("amp") filmstrip("j8vslider201.png", 201)
 vslider bounds(564, 210, 70, 150) range(0, 1, 0.5, 1, 0.001) channel("pan") filmstrip("j8vslider201.png", 201)
 
-
+;Wooden borders.
 image bounds(0, 0, 68, 600) file("wood.png")
 image bounds(724, 0, 76, 600) file("wood.png")
 
 ;Preset system IT FINALLY WORKED =)
-
 combobox bounds(85, 100, 288, 25), colour(55, 55, 55, 255), populate("*.snaps"), channeltype("string")
 filebutton bounds(82, 32, 145, 49), text("Save", "Save"), colour:0(55, 55, 55, 255), populate("*.snaps", "test"), mode("named snapshot") value(0) imgfile("wavegbox.png")
 filebutton bounds(234, 32, 145, 49), text("Remove", "Remove"), colour:0(55, 55, 55, 255), populate("*.snaps", "test"), mode("remove preset") imgfile("wavegbox.png")
@@ -78,12 +77,14 @@ kAmp chnget "amp"
 iPan chnget "pan"
 gkRvbMix	chnget	"RvbMix"
 gkRvbSize	chnget	"RvbSize"
+ipan chnget pan
   
 kWaveform chnget "waveform"
     if changed:k(kWaveform) == 1 then
         tablecopy 99, kWaveform
         chnset "tablenumber(99)", "table1" 
     endif
+aL,aR reverbsc	kAmp,kAmp,gkRvbSize,12000
 kLFO oscili 1, kLFOFreq, 99
 kEnv madsr iAtt, iDec, iSus, iRel 
 aOut vco2 iAmp, iFreq
