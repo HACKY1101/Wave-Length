@@ -11,11 +11,11 @@ groupbox bounds(563, 366, 158, 135) text("Reverb") imgfile("wavegbox.png") fontc
 groupbox bounds(406, 366, 156, 135)  imgfile("wavegbox.png") text("LoFi") fontcolour(255, 0, 0, 255)
 keyboard bounds(69, 505, 665, 95) whiteNoteColour(0, 0, 0, 255) keySeparatorColour(255, 255, 255, 102) blackNoteColour(34, 28, 28, 255) mouseOverKeyColour(255, 255, 255, 255)
 rslider bounds(424, 32, 70, 70), channel("att"), range(0.01, 1, 0.01, 1, 0.01), text("Attack")  trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
-rslider bounds(492, 32, 70, 70), channel("dec"), range(0, 1, 0.5, 1, 0.01), text("Decay") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
-rslider bounds(562, 32, 70, 70), channel("sus"), range(0, 1, 0.5, 1, 0.01), text("Sustain") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
+rslider bounds(492, 32, 70, 70), channel("dec"), range(0, 1, 0.5, 1, 0.01), text("Decay") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
+rslider bounds(562, 32, 70, 70), channel("sus"), range(0, 1, 0.5, 1, 0.01), text("Sustain") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 rslider bounds(632, 32, 70, 70), channel("rel"), range(0, 1, 0.7, 1, 0.01), text("Release") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
 rslider bounds(462, 100, 70, 70), channel("cutoff"), range(100, 9000, 2000, 0.5, 0.01), text("Cut-Off") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
-rslider bounds(530, 100, 70, 70), channel("res"), range(0, 0.9, 0.7, 1, 0.01), text("Resonance") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
+rslider bounds(530, 100, 70, 70), channel("res"), range(0, 0.9, 0.7, 1, 0.01), text("Resonance") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 rslider bounds(600, 100, 70, 70), channel("LFOFreq"), range(0, 10, 0.12, 1, 0.1), text("LFO Freq") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
 rslider bounds(486, 234, 70, 70), channel("pitch"), range(0, 10, 5, 1, 0.1), text("Pitch") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 rslider bounds(412, 234, 70, 70), channel("glide"), range(0, 10, 0.12, 1, 0.1), text("Glide") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
@@ -41,7 +41,7 @@ combobox bounds(82, 430, 293, 20), , channel("waveform") text("Sine", "Square", 
 
 ;reverb unit.
 rslider bounds(642, 396, 70, 70), channel("RvbMix"), range(0, 1.00, 1), text("Mix") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
-rslider bounds(570, 396, 70, 70), channel("RvbSize"), range(0.3, 1.00, 0.4), text("Size") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
+rslider bounds(570, 396, 70, 70), channel("RvbSize"), range(0, 1, 0, 1, 0.01), text("Size") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 
 ;LoFi unit.
 rslider bounds(488, 360, 70, 70), channel("fold"), range(0, 10, 0.12, 1, 0.1), text("Foldover") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
@@ -103,10 +103,20 @@ endin
 
 instr Reverb
 ;The reverb fx unit.
+kMainrev chnget "RvbSize"
+kVolume chnget "RvbMix"
 a1 chnget "outLeft"
 a2 chnget "outRight"
-aL, aR reverbsc a1, a2, .9, 5000
-outs aL, aR
+
+kFdBack = kMainrev
+kFco = kMainrev * 10000
+kGain = kMainrev
+
+aInL inch 1
+aInR inch 2
+aOutL, aOutR reverbsc aInL, aInR, kFdBack, kFco
+outs aOutL*kGain, aOutR*kGain
+
 chnclear "outLeft"
 chnclear "outRight"
 endin

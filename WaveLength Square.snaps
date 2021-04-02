@@ -3,14 +3,20 @@
 <CABBAGE_PRESETS>
   <PRESET0 PresetName="Init" cabbageJSONData="" att="0.009999999776482582"
            dec="0.5" sus="0.5" rel="0.699999988079071" cutoff="2000.0" res="0.699999988079071"
-           LFOFreq="0.119999997317791" amp="1.0" pan="0.5" combochan="0.0"
-           filebutton="0.0"/>
-  <PRESET1 PresetName="Simple Bass" cabbageJSONData="" att="0.009999999776482582"
-           dec="0.5" sus="0.5" rel="0.699999988079071" cutoff="374.9999694824219"
-           res="0.429999977350235" LFOFreq="4.0" amp="0.8600000143051147"
-           pan="0.5" combochan="0.0" filebutton="0.0"/>
-  <PRESET2 PresetName="Punchy Lead" cabbageJSONData="" att="0.009999999776482582"
-           dec="0.199999988079071" sus="0.119999997317791" rel="1.0" cutoff="3720.72021484375"
-           res="0.699999988079071" LFOFreq="0.119999997317791" amp="1.0"
-           pan="0.5" combochan="0.0" filebutton="0.0"/>
+           LFOFreq="0.119999997317791" pitch="5.0" glide="0.119999997317791"
+           amp="1.0" pan="0.5" combochan="iNIT" filebutton="0.0" waveform="1.0"
+           RvbMix="1.0" RvbSize="0.0" fold="0.119999997317791" bits="0.119999997317791"
+           level="0.119999997317791"/>
+  <PRESET1 PresetName="Square sub" cabbageJSONData="" att="0.1599999964237213"
+           dec="0.5" sus="0.5" rel="0.699999988079071" cutoff="100.0" res="0.8999999761581421"
+           LFOFreq="0.119999997317791" pitch="5.0" glide="0.119999997317791"
+           amp="1.0" pan="0.5" combochan="enter name here" filebutton="0.0"
+           waveform="2.0" RvbMix="1.0" RvbSize="0.0" fold="0.119999997317791"
+           bits="0.119999997317791" level="0.119999997317791"/>
+  <PRESET2 PresetName="Saw dub bass" cabbageJSONData="" att="0.09999999403953552"
+           dec="0.5" sus="0.5" rel="0.4199999868869781" cutoff="991.0" res="0.3599999845027924"
+           LFOFreq="2.799999952316284" pitch="5.0" glide="0.119999997317791"
+           amp="1.0" pan="0.5" combochan="Square sub" filebutton="0.0" waveform="3.0"
+           RvbMix="1.0" RvbSize="0.0" fold="0.119999997317791" bits="0.119999997317791"
+           level="0.119999997317791"/>
 </CABBAGE_PRESETS>
