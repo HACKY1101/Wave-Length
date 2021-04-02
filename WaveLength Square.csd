@@ -60,6 +60,16 @@ sr = 44100
 ksmps = 32
 nchnls = 2.
 
+
+opcode	LoFi,a,akk
+	ain,kbits,kfold	xin									;READ IN INPUT ARGUMENTS
+	kvalues		pow		2, kbits					;RAISES 2 TO THE POWER OF kbitdepth. THE OUTPUT VALUE REPRESENTS THE NUMBER OF POSSIBLE VALUES AT THAT PARTICULAR BIT DEPTH
+	aout		=	(int((ain/0dbfs)*kvalues))/kvalues	;BIT DEPTH REDUCE AUDIO SIGNAL
+	aout		fold 	aout, kfold							;APPLY SAMPLING RATE FOLDOVER
+		xout	aout									;SEND AUDIO BACK TO CALLER INSTRUMENT
+endop
+
+
 ;instrument will be triggered by keyboard widget
 instr 1
 ;The basic instrument.
