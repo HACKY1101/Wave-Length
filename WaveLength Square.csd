@@ -57,8 +57,7 @@ rslider bounds(412, 396, 70, 70), channel("bits"), range(0, 10, 0.12, 1, 0.1), t
 ; Initialize the global variables. 
 sr = 44100
 ksmps = 32
-nchnls = 2
-0dbfs = 1
+nchnls = 2.
 
 ;instrument will be triggered by keyboard widget
 instr 1
@@ -77,7 +76,6 @@ kAmp chnget "amp"
 iPan chnget "pan"
 gkRvbMix	chnget	"RvbMix"
 gkRvbSize	chnget	"RvbSize"
-ipan chnget pan
   
 kWaveform chnget "waveform"
     if changed:k(kWaveform) == 1 then
