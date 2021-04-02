@@ -41,11 +41,10 @@ gentable bounds(82, 276, 293, 150), tablenumber(99.0), identchannel("table1"), f
 combobox bounds(82, 430, 293, 20), , channel("waveform") text("Sine", "Square", "Saw")
 
 ;reverb unit.
-rslider bounds(642, 396, 70, 70), channel("revmix"), range(0, 10, 5, 1, 0.1), text("Mix") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
-rslider bounds(570, 396, 70, 70), channel("size"), range(0, 10, 5, 1, 0.1), text("Size") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
+rslider bounds(642, 396, 70, 70), channel("RvbMix"), range(0, 1.00, 1), text("Mix") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
+rslider bounds(570, 396, 70, 70), channel("RvbSize"), range(0.3, 1.00, 0.4), text("Size") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 
 ;LoFi unit.
-;Adapted from LoFi cabbage example project.
 rslider bounds(486, 396, 70, 70), channel("fold"), range(0, 10, 0.12, 1, 0.1), text("Foldover") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 rslider bounds(412, 396, 70, 70), channel("bits"), range(0, 10, 0.12, 1, 0.1), text("Bits") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 
@@ -77,6 +76,8 @@ kCutOff chnget "cutoff"
 kLFOFreq chnget "LFOFreq"
 kAmp chnget "amp"
 iPan chnget "pan"
+gkRvbMix	chnget	"RvbMix"
+gkRvbSize	chnget	"RvbSize"
   
 kWaveform chnget "waveform"
     if changed:k(kWaveform) == 1 then
