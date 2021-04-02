@@ -40,6 +40,7 @@ gentable bounds(82, 276, 293, 150), tablenumber(99.0), identchannel("table1"), f
 combobox bounds(82, 430, 293, 20), , channel("waveform") text("Sine", "Square", "Saw")
 
 ;reverb unit.
+;Adapted from MultiReverb cabbage example project by Iain McCurdy.
 rslider bounds(420, 384, 70, 70), text("Size"), , , , colour(79, 81, 70, 255), trackercolour(240, 210, 170, 255) channel("fblvl") range(0, 1, 0.8, 1, 0.001) textcolour(255, 255, 255, 255) filmstrip("j8rslider201.png", 201)
 rslider bounds(492, 384, 70, 70), text("Damping"), , , , colour(79, 81, 70, 255), trackercolour(240, 210, 170, 255) channel("fco") range(0, 1, 0.6, 1, 0.001) textcolour(255, 255, 255, 255) filmstrip("j8rslider201.png", 201)
 rslider bounds(438, 280, 70, 70), text("Pitch Mod."), , , ,   colour(79, 81, 70, 255), trackercolour(240, 210, 170, 255), identchannel("pitchmID") channel("pitchm") range(0, 20, 1, 1, 0.001) filmstrip("j8rslider201.png", 201)
@@ -80,10 +81,10 @@ kWaveform chnget "waveform"
         tablecopy 99, kWaveform
         chnset "tablenumber(99)", "table1" 
     endif
+kLFO oscili 1, kLFOFreq, 99
 kEnv madsr iAtt, iDec, iSus, iRel 
 aOut vco2 iAmp, iFreq, iFdBack
-kLFO lfo 2, kLFOFreq, 5
-aLP moogladder aOut, kLFO*kCutOff, kRes
+aLP moogladder aOut, abs(kLFO)*kCutOff, kRes
 outs kAmp*(aLP*kEnv), kAmp*(aLP*kEnv)
 endin
 
