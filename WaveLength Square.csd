@@ -34,7 +34,7 @@ combobox bounds(85, 100, 288, 25), colour(55, 55, 55, 255), populate("*.snaps"),
 filebutton bounds(82, 32, 145, 49), text("Save", "Save"), colour:0(55, 55, 55, 255), populate("*.snaps", "test"), mode("named snapshot") value(0) imgfile("wavegbox.png")
 filebutton bounds(234, 32, 145, 49), text("Remove", "Remove"), colour:0(55, 55, 55, 255), populate("*.snaps", "test"), mode("remove preset") imgfile("wavegbox.png")
 
-image bounds(30, 126, 416, 222) file("Wave Length logo.png") active(0)
+image bounds(26, 126, 404, 222) file("Wave Length logo.png") active(0)
 
 ;wave form controll.
 gentable bounds(82, 276, 293, 150), tablenumber(99.0), identchannel("table1"), fill(0), outlinethickness(3)
@@ -46,9 +46,9 @@ rslider bounds(570, 396, 70, 70), channel("size"), range(0, 10, 5, 1, 0.1), text
 
 ;LoFi unit.
 ;Adapted from LoFi cabbage example project.
-rslider bounds(452, 420, 70, 70), channel("fold"), range(0, 10, 0.12, 1, 0.1), text("Foldover") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
-rslider bounds(402, 368, 70, 70), channel("bits"), range(0, 10, 0.12, 1, 0.1), text("Bits") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
-rslider bounds(496, 368, 70, 70), channel("level"), range(0, 10, 0.12, 1, 0.1), text("Level") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
+rslider bounds(486, 396, 70, 70), channel("fold"), range(0, 10, 0.12, 1, 0.1), text("Foldover") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
+rslider bounds(412, 396, 70, 70), channel("bits"), range(0, 10, 0.12, 1, 0.1), text("Bits") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
+
 
 </Cabbage>
 <CsoundSynthesizer>
@@ -78,8 +78,6 @@ kLFOFreq chnget "LFOFreq"
 kAmp chnget "amp"
 iPan chnget "pan"
 iFdBack chnget "size"
-ibits chnget "bits"
-ifold chnget "fold"
   
 kWaveform chnget "waveform"
     if changed:k(kWaveform) == 1 then
