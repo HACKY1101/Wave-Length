@@ -40,8 +40,8 @@ gentable bounds(82, 276, 293, 150), tablenumber(99.0), identchannel("table1"), f
 combobox bounds(82, 430, 293, 20), , channel("waveform") text("Sine", "Square", "Saw")
 
 ;reverb unit.
-rslider bounds(642, 396, 70, 70), channel("RvbMix"), range(0, 1.00, 1), text("Mix") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
-rslider bounds(570, 396, 70, 70), channel("RvbSize"), range(0, 1, 0, 1, 0.01), text("Size") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
+rslider bounds(642, 396, 70, 70), channel("mix"), range(0, 1.00, 1), text("Mix") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
+rslider bounds(570, 396, 70, 70), channel("size"), range(0, 1, 0, 1, 0.01), text("Size") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 
 ;LoFi unit.
 rslider bounds(488, 360, 70, 70), channel("fold"), range(0, 10, 0.12, 1, 0.1), text("Foldover") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
@@ -105,12 +105,18 @@ endin
 instr Reverb
 ;The reverb fx unit.
 
-a1 chnget "outLef"
-a2 chnget "outRight"
-aL, aR reverbsc a1, a2, .9, 5000
-outs aL, aR
-chnclear "outLeft"
-chnclear "outRight"
+kMix chnget "mix"
+kRoom chnget "size"
+
+a1 inch 1
+a2 inch 2
+
+aRevL, aRevR reverbsc a1, a2, kRoom, 10000
+
+aoutL ntrpol a1, aRevL, kMix
+aoutR ntrpol a2, aRevR, kMix
+
+outs aoutL, aoutR
 
 endin
 
