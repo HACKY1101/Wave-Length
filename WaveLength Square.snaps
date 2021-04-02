@@ -19,4 +19,10 @@
            amp="1.0" pan="0.5" combochan="Square sub" filebutton="0.0" waveform="3.0"
            RvbMix="1.0" RvbSize="0.0" fold="0.119999997317791" bits="0.119999997317791"
            level="0.119999997317791"/>
+  <PRESET3 PresetName="Square bass" cabbageJSONData="" att="0.009999999776482582"
+           dec="0.5" sus="0.5" rel="0.699999988079071" cutoff="496.0000610351562"
+           res="0.3100000023841858" LFOFreq="0.119999997317791" pitch="5.0"
+           glide="0.119999997317791" amp="1.0" pan="0.5" combochan="Square sub"
+           filebutton="0.0" waveform="2.0" RvbMix="1.0" RvbSize="0.0" fold="0.119999997317791"
+           bits="0.119999997317791" level="0.119999997317791"/>
 </CABBAGE_PRESETS>

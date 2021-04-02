@@ -17,7 +17,7 @@ rslider bounds(632, 32, 70, 70), channel("rel"), range(0, 1, 0.7, 1, 0.01), text
 rslider bounds(462, 100, 70, 70), channel("cutoff"), range(100, 9000, 2000, 0.5, 0.01), text("Cut-Off") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
 rslider bounds(530, 100, 70, 70), channel("res"), range(0, 0.9, 0.7, 1, 0.01), text("Resonance") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 rslider bounds(600, 100, 70, 70), channel("LFOFreq"), range(0, 10, 0.12, 1, 0.1), text("LFO Freq") colour(0, 0, 0, 255) trackerColour(255, 255, 255, 255) markerColour(255, 255, 255, 255) colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201, "vertical")
-rslider bounds(486, 234, 70, 70), channel("pitch"), range(0, 10, 5, 1, 0.1), text("Pitch") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
+rslider bounds(486, 234, 70, 70), channel("pitch"), range(0, 10, 1, 1, 0.1), text("Pitch") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 rslider bounds(412, 234, 70, 70), channel("glide"), range(0, 10, 0.12, 1, 0.1), text("Glide") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 
 ;Volume and pan.
@@ -85,8 +85,9 @@ kCutOff chnget "cutoff"
 kLFOFreq chnget "LFOFreq"
 kAmp chnget "amp"
 iPan chnget "pan"
-gkRvbMix	chnget	"RvbMix"
-gkRvbSize	chnget	"RvbSize"
+kPitch chnget "pitch"
+gkRvbMix chnget	"RvbMix"
+gkRvbSize chnget "RvbSize"
   
 kWaveform chnget "waveform"
     if changed:k(kWaveform) == 1 then
@@ -95,7 +96,7 @@ kWaveform chnget "waveform"
     endif
 kLFO oscili 1, kLFOFreq, 99
 kEnv madsr iAtt, iDec, iSus, iRel 
-aOut vco2 iAmp, iFreq
+aOut vco2 iAmp, iFreq*kPitch
 aLP moogladder aOut, abs(kLFO)*kCutOff, kRes
 outs kAmp*(aLP*kEnv), kAmp*(aLP*kEnv)
 endin
