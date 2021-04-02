@@ -44,8 +44,9 @@ rslider bounds(642, 396, 70, 70), channel("RvbMix"), range(0, 1.00, 1), text("Mi
 rslider bounds(570, 396, 70, 70), channel("RvbSize"), range(0.3, 1.00, 0.4), text("Size") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 
 ;LoFi unit.
-rslider bounds(486, 396, 70, 70), channel("fold"), range(0, 10, 0.12, 1, 0.1), text("Foldover") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
+rslider bounds(488, 360, 70, 70), channel("fold"), range(0, 10, 0.12, 1, 0.1), text("Foldover") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 rslider bounds(412, 396, 70, 70), channel("bits"), range(0, 10, 0.12, 1, 0.1), text("Bits") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
+rslider bounds(488, 428, 70, 70), channel("level"), range(0, 10, 0.12, 1, 0.1), text("Level") colour(0, 0, 0, 255)   colour(0, 0, 0, 255) filmstrip("j8rslider201.png", 201)
 
 
 </Cabbage>
@@ -61,7 +62,7 @@ nchnls = 2.
 
 ;instrument will be triggered by keyboard widget
 instr 1
-;instrument 1 is a square wave.
+;The basic instrument.
 iFreq = p4
 iAmp = p5
 
@@ -82,12 +83,38 @@ kWaveform chnget "waveform"
         tablecopy 99, kWaveform
         chnset "tablenumber(99)", "table1" 
     endif
-aL,aR reverbsc	kAmp,kAmp,gkRvbSize,12000
 kLFO oscili 1, kLFOFreq, 99
 kEnv madsr iAtt, iDec, iSus, iRel 
 aOut vco2 iAmp, iFreq
 aLP moogladder aOut, abs(kLFO)*kCutOff, kRes
 outs kAmp*(aLP*kEnv), kAmp*(aLP*kEnv)
+endin
+
+
+instr Reverb
+;The reverb fx unit.
+a1 chnget "outLeft"
+a2 chnget "outRight"
+aL, aR reverbsc a1, a2, .9, 5000
+outs aL, aR
+chnclear "outLeft"
+chnclear "outRight"
+endin
+
+
+instr 3
+;The LoFi fx unit.
+kbits chnget "bits"
+kfold chnget "fold"
+klevel chnget "level"
+a1,a2	ins
+kporttime	linseg	0,0.001,0.01
+kfold	portk	kfold,kporttime
+a1	LoFi	a1,kbits*0.6,kfold
+a2	LoFi	a2,kbits*0.6,kfold
+a1	=	a1 * klevel
+a2	=	a2 * klevel
+	outs	a1,a2
 endin
 
 </CsInstruments>
